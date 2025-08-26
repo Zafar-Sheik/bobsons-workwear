@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  @apply bg-neutral-950 text-neutral-100 font-body antialiased;
+}
+.section {
+  @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+.heading {
+  @apply font-display tracking-tight;
+}
+
+/* Fancy gradient accents */
+.accent-gradient {
+  background: radial-gradient(
+      60% 80% at 20% 0%,
+      rgba(43, 136, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0) 60%
+    ),
+    radial-gradient(
+      80% 60% at 100% 30%,
+      rgba(18, 63, 138, 0.25) 0%,
+      rgba(255, 255, 255, 0) 60%
+    );
+}
+
+/* Marquee */
+.marquee {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.marquee-content {
+  display: flex;
+  animation: marquee 30s linear infinite;
+  gap: 3rem;
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Reduced motion respect */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-content {
+    animation: none !important;
+  }
+}
